@@ -73,6 +73,7 @@ function search(){
               savedCities.shift();
             }
           }
+          localStorage.setItem("Saved Cities", JSON.stringify(savedCities));
           document.getElementById('citynameinput').value = '';
           lastSearch = city;
           searchedCityH2.textContent = "Current weather in " + city;
@@ -130,6 +131,7 @@ function searchExtra(){
             alert("City not found.");
             return;
           }
+          localStorage.setItem("Saved Cities", JSON.stringify(savedCities));
           searchedCityH2.textContent = "Current weather in " + city;
           lat = data.coord.lat;
           lon = data.coord.lon;
@@ -185,3 +187,11 @@ function loadSavedCities(){
     createBtn(savedCities[i]);
   }
 }
+var storageCities = JSON.parse(localStorage.getItem("Saved Cities"));
+function loadStorage(){
+  if(storageCities != null){
+    savedCities = storageCities;
+    loadSavedCities();
+  }
+}
+loadStorage();
