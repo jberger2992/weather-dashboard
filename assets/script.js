@@ -48,7 +48,7 @@ function createBtn(str){
   newBtn.textContent = str;
   buttons.appendChild(newBtn);
   newBtn.addEventListener("click", function(){
-    queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + newBtn.textContent + "&appid=" + APIKey;
+    queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + newBtn.textContent + "&appid=" + APIKey;
     searchExtra();
   })
 }
@@ -87,7 +87,7 @@ function search(){
 
       
   function searchTwo(){
-    var fiveDay = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+    var fiveDay = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
   fetch(fiveDay)
   .then(function (response) {
       return response.json();
@@ -143,7 +143,7 @@ function searchExtra(){
 
       
   function searchTwo(){
-    var fiveDay = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+    var fiveDay = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
   fetch(fiveDay)
   .then(function (response) {
       return response.json();
@@ -177,7 +177,7 @@ function searchExtra(){
 
 searchBtn.addEventListener("click", function(){
   city = capitalizeWords(searchInput.value);
-  queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+  queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
   document.getElementById('citynameinput').value = '';
   search();
 })
