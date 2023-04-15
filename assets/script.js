@@ -25,6 +25,7 @@ var fiveTempP = document.getElementById("fivetemp");
 var fiveWindP = document.getElementById("fivewind");
 var fiveHumidityP = document.getElementById("fivehumidity");
 var buttons = document.getElementById("inputarea");
+var savedBtns = document.getElementById("savedBtns");
 
 var APIKey = "4c34d8d8ec08ac9c00d227658c97fec3";
 var city = "";
@@ -42,11 +43,10 @@ function capitalizeWords(str) {
 
 function createBtn(str){
   var newBtn = document.createElement("button");
-  newBtn.classList.add("w-75");
-  newBtn.classList.add("m-2");
-  newBtn.classList.add("p-2");
+  // newBtn.classList.add("w-75","m-2","p-2");
+  newBtn.classList.add("col-12","col-lg-9","fs-5");
   newBtn.textContent = str;
-  buttons.appendChild(newBtn);
+  savedBtns.appendChild(newBtn);
   newBtn.addEventListener("click", function(){
     queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + newBtn.textContent + "&appid=" + APIKey;
     searchedCityH2.textContent = "Current weather in " + newBtn.textContent;
