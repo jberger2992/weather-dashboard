@@ -49,6 +49,7 @@ function createBtn(str){
   buttons.appendChild(newBtn);
   newBtn.addEventListener("click", function(){
     queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + newBtn.textContent + "&appid=" + APIKey;
+    searchedCityH2.textContent = "Current weather in " + newBtn.textContent;
     searchExtra();
   })
 }
@@ -132,7 +133,6 @@ function searchExtra(){
             return;
           }
           localStorage.setItem("Saved Cities", JSON.stringify(savedCities));
-          searchedCityH2.textContent = "Current weather in " + city;
           lat = data.coord.lat;
           lon = data.coord.lon;
           searchedTempP.textContent = "Temperature:  " + Math.round(((data.main.temp)-273.15)*9/5+32) + "° F";
